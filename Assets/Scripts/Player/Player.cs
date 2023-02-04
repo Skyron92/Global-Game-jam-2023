@@ -14,11 +14,14 @@ public class Player : MonoBehaviour
     private Vector3 _direction;
     [Header("Movements Settings")][Range(0,10)][SerializeField] private float speed;
     private float _startSpeed;
+    
    
     //Jump Settings
     [Range(0, 10)] [SerializeField] private float jumpPower;
     private bool canJump;
     [SerializeField] private ParticleSystem jumpParticle;
+    //Set to rand between 7 and 15 when enter in grass
+    private int debuffJump = 0;
     
     //Gravity Settings
     private float _gravity = -9.81f;
@@ -53,9 +56,16 @@ public class Player : MonoBehaviour
         menu.SetActive(false);
     }
 
-    void Update() {
+    void Update(){
         Gravity();
         MoveCharacter();
+        if(debuffJump > 0 && Input.GetKeyDown(KeyCode.Space)){
+            debuffJump --;
+            if(debuffJump == 0){
+                canJump = true;
+            }
+
+        }
         _animator.SetFloat("Horizontal", _input.x);
         if(_velocity >= 1) _animator.SetFloat("Vertical", 1);
         else _animator.SetFloat("Vertical", 0);
@@ -101,6 +111,7 @@ public class Player : MonoBehaviour
         if (other.CompareTag("Grass")) {
             speed = Mathf.Lerp(speed, 1, 5f);
             canJump = !canJump;
+            debuffJump = Random.Range(7,15);
             jumpParticle.enableEmission = false;
         }
 
@@ -120,6 +131,11 @@ public class Player : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("WaterDrop")){
             HydratationManager.currentValue += WaterValue;
+        ParticleSystem splash = collision.gameObject.GetComponentInChildren<ParticleSystem>();          
+            if(splash){
+            Debug.Log(splash);
+                splash.Play();
+            }
             Destroy(collision.gameObject);
         }
     }
