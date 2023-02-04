@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
     //CharacterController
     private CharacterController characterController;
     private bool _isGrounded => characterController.isGrounded;
+    private Animator _animator;
     
     
     //Move Settings
@@ -45,6 +46,7 @@ public class Player : MonoBehaviour
 
     void Awake() {
         characterController = GetComponent<CharacterController>();
+        _animator = GetComponent<Animator>();
         _direction = new Vector3(_input.x, 0, 0);
         _startSpeed = speed;
         canJump = true;
@@ -54,16 +56,19 @@ public class Player : MonoBehaviour
     void Update() {
         Gravity();
         MoveCharacter();
+        _animator.SetFloat("Horizontal", _input.x);
+        if(_velocity >= 1) _animator.SetFloat("Vertical", 1);
+        else _animator.SetFloat("Vertical", 0);
         if (speed < 0) speed = 0;
         if (speed > _startSpeed) speed = _startSpeed;
-        if (_isHurt) {
+       /* if (_isHurt) {
             recoilTimer += Time.deltaTime;
             Recoil();
         }
         else
         {
             recoilTimer = 0;
-        }
+        }*/
 
         if(HydratationManager.currentValue <= 0) GameOver();
     }
@@ -135,11 +140,11 @@ public class Player : MonoBehaviour
         menu.SetActive(true);
     }
 
-    private void Recoil() {
+    /*private void Recoil() {
         Debug.Log("Aie");
         distance.y += recoilPower;
         characterController.Move(-distance * Time.deltaTime);
         if (_isGrounded) _isHurt = false;
         if (recoilTimer >= 2) _isHurt = false;
-    }
+    }*/
 }
