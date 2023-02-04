@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
@@ -58,10 +59,9 @@ public class Player : MonoBehaviour
         if (speed < 0) speed = 0;
         if (speed > _startSpeed) speed = _startSpeed;
         if (_isHurt) {
-            Recoil();
+           // Recoil();
             invulnerabilityTimer += Time.deltaTime;
             if (invulnerabilityTimer >= invulnerabilityDuration) {
-                Debug.Log("N'est plus invulnérable");
                 _isHurt = false;
             }
         }
@@ -70,7 +70,6 @@ public class Player : MonoBehaviour
         thirst -= Time.deltaTime * DecreaseSpeed;
         slider.value = thirst;
         if(thirst <= 0) GameOver();
-        Debug.Log(thirst);
     }
 
     public void Move(InputAction.CallbackContext context) {
@@ -110,7 +109,19 @@ public class Player : MonoBehaviour
             thirst += WaterValue;
             Destroy(other.gameObject);
         }
+        
     }
+    
+
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.collider.CompareTag("BrokenGround")) {
+            Debug.Log("Est dessus");
+            BrokenGround context = hit.collider.GetComponent<BrokenGround>();
+            
+        }
+    }
+
     private void OnTriggerExit(Collider other) {
         if (other.CompareTag("Grass")) {
             speed = Mathf.Lerp(speed, _startSpeed, 1f);
@@ -119,19 +130,18 @@ public class Player : MonoBehaviour
     }
 
     private void Invulnerability() {
-        Debug.Log("Est invulnérable");
         _isHurt = true;
         invulnerabilityTimer = 0;
     }
 
-    private void Recoil() {
-        if(!_isHurt) return;
-        Vector3 right = Vector3.right * recoilPower * Time.deltaTime;
-        Vector3 left = Vector3.left * recoilPower * Time.deltaTime;
-        if (_direction.x < 0) characterController.Move(right);
-        if (_direction.x > 0) characterController.Move(left);
-        _velocity += recoilPower * Time.deltaTime;
-    }
+    /* private void Recoil() {
+         if(!_isHurt) return;
+         Vector3 right = Vector3.right * recoilPower * Time.deltaTime;
+         Vector3 left = Vector3.left * recoilPower * Time.deltaTime;
+         if (_direction.x < 0) characterController.Move(right);
+         if (_direction.x > 0) characterController.Move(left);
+         _velocity += recoilPower * Time.deltaTime;
+     }*/
 
     private void GameOver() {
         menu.SetActive(true);
