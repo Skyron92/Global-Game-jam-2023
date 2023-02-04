@@ -21,13 +21,17 @@ public class CreateLevel : MonoBehaviour
     void Start()
     {
         int maxWidth = mapSize * blockWidth;
-
+        
         GameObject displayedLevel = start;
 
-        Instantiate(droplet, new Vector3(0,2,0), Quaternion.identity);
+        float dividende = Mathf.Round(maxWidth*0.9f/10);
+        Debug.Log(dividende);
 
-        for(int i = 0; i < Mathf.Round(maxWidth/5); i++){
-            Instantiate(droplet, new Vector3(i*blockWidth*Random.Range(10,30), 4, 0.3f), Quaternion.identity);
+        for(int i = 0; i < dividende ; i++){
+            if((i+1)*dividende % 2 == 0){
+                Instantiate(droplet, new Vector3((i+1)*dividende, 4, 0.3f), Quaternion.identity);
+            }
+        
         }
 
         if(mapSize > 0){
