@@ -63,11 +63,8 @@ public class Player : MonoBehaviour
         if (_isHurt) {
             Recoil();
         }
-        if (thirst > 1) thirst = 1;
-        if (thirst < 0) thirst = 0;
-        thirst -= Time.deltaTime * DecreaseSpeed;
-        
-        if(thirst <= 0) GameOver();
+
+        if(HydratationManager.currentValue <= 0) GameOver();
     }
 
     public void Move(InputAction.CallbackContext context) {
@@ -101,13 +98,13 @@ public class Player : MonoBehaviour
 
         if (other.CompareTag("Enemy")) {
             _isHurt = true;
-            thirst -= Damages;
+            HydratationManager.currentValue -= Damages;
             distance.x = transform.position.x - other.transform.position.x;
             Invulnerability();
         }
 
         if (other.CompareTag("WaterDrop")) {
-            thirst += WaterValue;
+            HydratationManager.currentValue += WaterValue;
             Destroy(other.gameObject);
         }
         
