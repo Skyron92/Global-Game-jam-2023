@@ -6,7 +6,7 @@ public class CreateLevel : MonoBehaviour
 {
     public List<GameObject> level;
     public int mapSize;
-    private int blockWidth = 10;
+    private int blockWidth = 5;
     private MeshRenderer levelSize;
     public GameObject start;
     public GameObject finish;
@@ -17,7 +17,6 @@ public class CreateLevel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Instantiate(start, new Vector3(0,0,0), Quaternion.Euler(-90f, 0f, 0f));
         GameObject displayedLevel = start;
 
         if(mapSize > 0){
