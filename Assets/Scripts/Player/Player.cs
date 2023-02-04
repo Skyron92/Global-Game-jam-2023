@@ -116,6 +116,13 @@ public class Player : MonoBehaviour
             Destroy(other.gameObject);
         }
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("WaterDrop")){
+            HydratationManager.currentValue += WaterValue;
+            Destroy(collision.gameObject);
+        }
+    }
     
     private void OnControllerColliderHit(ControllerColliderHit hit) {
         if (hit.collider.CompareTag("BrokenGround")) {

@@ -11,6 +11,8 @@ public class CreateLevel : MonoBehaviour
     private MeshRenderer levelSize;
     public GameObject start;
     public GameObject finish;
+    public GameObject droplet;
+
     
     public static float remainingTime = 15;
 
@@ -18,7 +20,15 @@ public class CreateLevel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        int maxWidth = mapSize * blockWidth;
+
         GameObject displayedLevel = start;
+
+        Instantiate(droplet, new Vector3(0,2,0), Quaternion.identity);
+
+        for(int i = 0; i < Mathf.Round(maxWidth/5); i++){
+            Instantiate(droplet, new Vector3(i*blockWidth*Random.Range(10,30), 4, 0.3f), Quaternion.identity);
+        }
 
         if(mapSize > 0){
 
