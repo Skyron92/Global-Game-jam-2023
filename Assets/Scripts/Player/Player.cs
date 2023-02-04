@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
+using Random = System.Random;
 
 public class Player : MonoBehaviour
 {
@@ -112,13 +113,10 @@ public class Player : MonoBehaviour
         
     }
     
-
-    private void OnControllerColliderHit(ControllerColliderHit hit)
-    {
+    private void OnControllerColliderHit(ControllerColliderHit hit) {
         if (hit.collider.CompareTag("BrokenGround")) {
-            Debug.Log("Est dessus");
             BrokenGround context = hit.collider.GetComponent<BrokenGround>();
-            
+            context.wobble = true;
         }
     }
 
@@ -133,15 +131,6 @@ public class Player : MonoBehaviour
         _isHurt = true;
         invulnerabilityTimer = 0;
     }
-
-    /* private void Recoil() {
-         if(!_isHurt) return;
-         Vector3 right = Vector3.right * recoilPower * Time.deltaTime;
-         Vector3 left = Vector3.left * recoilPower * Time.deltaTime;
-         if (_direction.x < 0) characterController.Move(right);
-         if (_direction.x > 0) characterController.Move(left);
-         _velocity += recoilPower * Time.deltaTime;
-     }*/
 
     private void GameOver() {
         menu.SetActive(true);
