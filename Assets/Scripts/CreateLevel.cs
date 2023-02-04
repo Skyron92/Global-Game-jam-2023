@@ -37,9 +37,7 @@ public class CreateLevel : MonoBehaviour
                 }
 
             displayedLevel = level[rand];
-            
         }
-
         }
         
         Instantiate(finish, new Vector3((mapSize)*blockWidth+blockWidth, 0, 0), Quaternion.Euler(-90f, 0f, 0f));
