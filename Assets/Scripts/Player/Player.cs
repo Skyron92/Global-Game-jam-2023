@@ -1,10 +1,5 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Rendering;
-using UnityEngine.Rendering.Universal;
-using UnityEngine.UI;
-using Random = System.Random;
 
 public class Player : MonoBehaviour
 {
@@ -22,6 +17,7 @@ public class Player : MonoBehaviour
     //Jump Settings
     [Range(0, 10)] [SerializeField] private float jumpPower;
     private bool canJump;
+    [SerializeField] private ParticleSystem jumpParticle;
     
     //Gravity Settings
     private float _gravity = -9.81f;
@@ -61,7 +57,12 @@ public class Player : MonoBehaviour
         if (speed < 0) speed = 0;
         if (speed > _startSpeed) speed = _startSpeed;
         if (_isHurt) {
+            recoilTimer += Time.deltaTime;
             Recoil();
+        }
+        else
+        {
+            recoilTimer = 0;
         }
 
         if(HydratationManager.currentValue <= 0) GameOver();
@@ -88,18 +89,20 @@ public class Player : MonoBehaviour
         if(!_isGrounded) return;
         if(!canJump) return;
         _velocity += jumpPower;
+        jumpParticle.Play();
     }
 
     private void OnTriggerEnter(Collider other) {
         if (other.CompareTag("Grass")) {
             speed = Mathf.Lerp(speed, 1, 5f);
             canJump = !canJump;
+            jumpParticle.enableEmission = false;
         }
 
         if (other.CompareTag("Enemy")) {
             _isHurt = true;
             HydratationManager.currentValue -= Damages;
-            distance.x = transform.position.x - other.transform.position.x;
+            distance = transform.position - other.transform.position;
             Invulnerability();
         }
 
@@ -107,7 +110,6 @@ public class Player : MonoBehaviour
             HydratationManager.currentValue += WaterValue;
             Destroy(other.gameObject);
         }
-        
     }
     
     private void OnControllerColliderHit(ControllerColliderHit hit) {
@@ -121,6 +123,7 @@ public class Player : MonoBehaviour
         if (other.CompareTag("Grass")) {
             speed = Mathf.Lerp(speed, _startSpeed, 1f);
             canJump = !canJump;
+            jumpParticle.enableEmission = true;
         }
     }
 
@@ -135,7 +138,8 @@ public class Player : MonoBehaviour
     private void Recoil() {
         Debug.Log("Aie");
         distance.y += recoilPower;
-        characterController.Move(distance * Time.deltaTime);
+        characterController.Move(-distance * Time.deltaTime);
         if (_isGrounded) _isHurt = false;
+        if (recoilTimer >= 2) _isHurt = false;
     }
 }
