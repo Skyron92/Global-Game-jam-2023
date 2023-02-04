@@ -255,9 +255,10 @@ MonoBehaviour:
   - {fileID: 5558659952136581570, guid: 3c90a4bac61554a4190bb9d7f18edf8d, type: 3}
   - {fileID: 6602284953608692686, guid: 6e9d0f7e9a98a4559812046c71d33a14, type: 3}
   - {fileID: 2629402035703301837, guid: 943a1d46cb2724a71951ed218a962827, type: 3}
-  mapSize: 20
+  mapSize: 35
   start: {fileID: 919132149034808665}
   finish: {fileID: 4470419995828396441, guid: 9f816b0f6d2614da4a209e62052c64c8, type: 3}
+  droplet: {fileID: 2225673130257353013, guid: fe4817b0a1e674b9f9b9906ce7289e00, type: 3}
 --- !u!4 &138954113
 Transform:
   m_ObjectHideFlags: 0
@@ -6655,7 +6656,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1412216290}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.69, y: 15.38, z: 0}
+  m_LocalPosition: {x: 0.28, y: 0.43, z: 0.68}
   m_LocalScale: {x: 2.8844388, y: 1.5038, z: 1.5038}
   m_ConstrainProportionsScale: 0
   m_Children: []
