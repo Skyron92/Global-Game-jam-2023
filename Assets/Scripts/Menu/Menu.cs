@@ -6,13 +6,16 @@ using UnityEngine.UI;
 public class Menu : MonoBehaviour
 {
     public Toggle windowed;
+    public Toggle Fullscreen;
 
     private void Start() {
         windowed = GetComponent<Toggle>();
+        Fullscreen = GetComponent<Toggle>();
     }
 
     private void Update() {
         if (windowed.isOn) Screen.fullScreenMode = FullScreenMode.Windowed;
+        if (Fullscreen.isOn) Screen.fullScreen = true;
     }
     
 
