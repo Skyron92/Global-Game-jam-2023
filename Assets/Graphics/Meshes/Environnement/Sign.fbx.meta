@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 06b253be9abe9b14da23e51ace059496
+guid: 22e3020168ceef147b88c69daeb646e7
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Water
-    second: {fileID: 2100000, guid: a8921b6510e0b3146a5721c01710609e, type: 2}
+      name: Wood
+    second: {fileID: 2100000, guid: adea6cbb8cec69440b7cb5ac29550bd3, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
