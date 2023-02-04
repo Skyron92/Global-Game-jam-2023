@@ -32,17 +32,18 @@ public class Player : MonoBehaviour
     
     //Damage Settings
     [Range(0, 10)] [SerializeField] private float recoilPower;
-    [Range(0, 1)] [SerializeField] private float Damages;
+    [Range(0, 100)] [SerializeField] private float Damages;
     [Range(0, 10)] [SerializeField] private float invulnerabilityDuration;
     private float invulnerabilityTimer;
+    private float recoilTimer;
     private bool _isHurt;
+    private Vector3 distance = new Vector3();
     
     //Thirst Settings 
     private float thirst = 1;
-    [Tooltip("Vitesse à laquelle la barre de soif diminue.")] [Range(0, 0.1f)] [SerializeField] private float DecreaseSpeed;
-    [Tooltip("Quantité d'eau redonnée par chaque goutte.")][Range(0, 1)] [SerializeField] private float WaterValue;
-    [SerializeField] private Slider slider;
-    
+    [Tooltip("Vitesse à laquelle la barre de soif diminue.")] [Range(0, 0.100f)] [SerializeField] private float DecreaseSpeed;
+    [Tooltip("Quantité d'eau redonnée par chaque goutte.")][Range(0, 100)] [SerializeField] private float WaterValue;
+
     //Menu Settings
     [Header("Menu")] [SerializeField] private GameObject menu;
 
@@ -60,20 +61,17 @@ public class Player : MonoBehaviour
         if (speed < 0) speed = 0;
         if (speed > _startSpeed) speed = _startSpeed;
         if (_isHurt) {
-           // Recoil();
-            invulnerabilityTimer += Time.deltaTime;
-            if (invulnerabilityTimer >= invulnerabilityDuration) {
-                _isHurt = false;
-            }
+            Recoil();
         }
         if (thirst > 1) thirst = 1;
         if (thirst < 0) thirst = 0;
         thirst -= Time.deltaTime * DecreaseSpeed;
-        slider.value = thirst;
+        
         if(thirst <= 0) GameOver();
     }
 
     public void Move(InputAction.CallbackContext context) {
+        if(_isHurt) return;
         _input = context.ReadValue<Vector2>();
         _direction = new Vector3(_input.x, 0, 0);
     }
@@ -102,7 +100,9 @@ public class Player : MonoBehaviour
         }
 
         if (other.CompareTag("Enemy")) {
+            _isHurt = true;
             thirst -= Damages;
+            distance.x = transform.position.x - other.transform.position.x;
             Invulnerability();
         }
 
@@ -128,11 +128,17 @@ public class Player : MonoBehaviour
     }
 
     private void Invulnerability() {
-        _isHurt = true;
         invulnerabilityTimer = 0;
     }
 
     private void GameOver() {
         menu.SetActive(true);
+    }
+
+    private void Recoil() {
+        Debug.Log("Aie");
+        distance.y += recoilPower;
+        characterController.Move(distance * Time.deltaTime);
+        if (_isGrounded) _isHurt = false;
     }
 }
