@@ -5,6 +5,7 @@ using UnityEngine;
 public class CreateLevel : MonoBehaviour
 {
     public List<GameObject> level;
+    public List<GameObject> ground;
     public int mapSize;
     private int blockWidth = 5;
     private MeshRenderer levelSize;
@@ -27,6 +28,10 @@ public class CreateLevel : MonoBehaviour
 
                 if(IsLevelValid(level[rand], displayedLevel)){
                     Instantiate(level[rand], new Vector3((i+1)*blockWidth, 0, 0), Quaternion.Euler(-90f, 0f, 0f));
+                    if(level[rand].name.Contains("Platform")){
+                        int randPlat = Random.Range(0,3);
+                        Instantiate(ground[randPlat], new Vector3((i+1)*blockWidth, 0, 0), Quaternion.Euler(-90f, 0f, 0f));
+                    };
                 }else{
                     i--;
                 }
