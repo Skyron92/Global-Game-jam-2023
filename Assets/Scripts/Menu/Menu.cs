@@ -10,7 +10,7 @@ public class Menu : MonoBehaviour
     
 
     public void Quit() {
-        EditorApplication.isPlaying = false;
-        Application.Quit();
+       /* EditorApplication.isPlaying = false;
+        Application.Quit();*/
     }
 }
