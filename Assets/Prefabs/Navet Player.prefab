@@ -6076,7 +6076,6 @@ Transform:
   - {fileID: 3320349050363419165}
   - {fileID: 7113947524061934124}
   - {fileID: 9109231621306200297}
-  - {fileID: 4770366758165799013}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
@@ -6167,7 +6166,6 @@ MonoBehaviour:
   DecreaseSpeed: 0.05
   WaterValue: 20
   menu: {fileID: 0}
-  waterSpread: {fileID: 8593060738847695953}
 --- !u!143 &9109231622084374749
 CharacterController:
   m_ObjectHideFlags: 0
@@ -6277,84 +6275,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!1001 &9109231622989162845
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 9109231622084374742}
-    m_Modifications:
-    - target: {fileID: 4348720973114755384, guid: fc389f943157549ce89419c5cc40ee3b,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4348720973114755384, guid: fc389f943157549ce89419c5cc40ee3b,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4348720973114755384, guid: fc389f943157549ce89419c5cc40ee3b,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4348720973114755384, guid: fc389f943157549ce89419c5cc40ee3b,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4348720973114755384, guid: fc389f943157549ce89419c5cc40ee3b,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4348720973114755384, guid: fc389f943157549ce89419c5cc40ee3b,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4348720973114755384, guid: fc389f943157549ce89419c5cc40ee3b,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4348720973114755384, guid: fc389f943157549ce89419c5cc40ee3b,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4348720973114755384, guid: fc389f943157549ce89419c5cc40ee3b,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4348720973114755384, guid: fc389f943157549ce89419c5cc40ee3b,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4348720973114755384, guid: fc389f943157549ce89419c5cc40ee3b,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5179920559586512667, guid: fc389f943157549ce89419c5cc40ee3b,
-        type: 3}
-      propertyPath: m_Name
-      value: VFX_WaterDrop
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: fc389f943157549ce89419c5cc40ee3b, type: 3}
---- !u!4 &4770366758165799013 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4348720973114755384, guid: fc389f943157549ce89419c5cc40ee3b,
-    type: 3}
-  m_PrefabInstance: {fileID: 9109231622989162845}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &8593060738847695953 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 660572099871067404, guid: fc389f943157549ce89419c5cc40ee3b,
-    type: 3}
-  m_PrefabInstance: {fileID: 9109231622989162845}
-  m_PrefabAsset: {fileID: 0}
