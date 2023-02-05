@@ -47,6 +47,10 @@ public class Player : MonoBehaviour
     //Menu Settings
     [Header("Menu")] [SerializeField] private GameObject menu;
 
+    //Particule System
+    public ParticleSystem waterSpread;
+
+
     void Awake() {
         characterController = GetComponent<CharacterController>();
         _animator = GetComponent<Animator>();
@@ -110,8 +114,10 @@ public class Player : MonoBehaviour
     private void OnTriggerEnter(Collider other) {
         if (other.CompareTag("Grass")) {
             speed = Mathf.Lerp(speed, 1, 5f);
-            canJump = !canJump;
-            debuffJump = Random.Range(7,15);
+            if(_isGrounded){
+                canJump = !canJump;
+                debuffJump = Random.Range(7,15);
+            }
             jumpParticle.enableEmission = false;
         }
 
@@ -124,6 +130,7 @@ public class Player : MonoBehaviour
 
         if (other.CompareTag("WaterDrop")) {
             HydratationManager.currentValue += WaterValue;
+            waterSpread.Play();
             Destroy(other.gameObject);
         }
     }
@@ -131,11 +138,6 @@ public class Player : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("WaterDrop")){
             HydratationManager.currentValue += WaterValue;
-        ParticleSystem splash = collision.gameObject.GetComponentInChildren<ParticleSystem>();          
-            if(splash){
-            Debug.Log(splash);
-                splash.Play();
-            }
             Destroy(collision.gameObject);
         }
     }
