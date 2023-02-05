@@ -65,8 +65,9 @@ public class CreateLevel : MonoBehaviour
 
     }
 
-    public void startGame(){
-        Menu.SetActive(false);
+    public void startGame()
+    {
+        Player._isActive = false;
         playerGB.transform.position = initialPosition;
         HydratationManager.currentValue = 100;
 

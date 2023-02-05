@@ -630,7 +630,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1ce5f5f0867127468ee896f9c6bfe29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTransform: {fileID: 543450652410093648}
+  playerTransform: {fileID: 0}
 --- !u!1 &353956474
 GameObject:
   m_ObjectHideFlags: 0
@@ -7297,7 +7297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 652007d12430ae34589da23b81f4596a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 0}
+  gameFinished: 0
   speed: 4
   jumpPower: 3.5
   jumpParticle: {fileID: 436068412}
@@ -7892,18 +7892,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2135451525}
   m_CullTransparentMesh: 1
---- !u!4 &543450652410093648 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8782235432927380174, guid: 03a505dd3b6bba246a7617b1b6a4917e,
-    type: 3}
-  m_PrefabInstance: {fileID: 9109231621506589342}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &919132149034808665 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4470419995828396441, guid: 9f816b0f6d2614da4a209e62052c64c8,
-    type: 3}
-  m_PrefabInstance: {fileID: 3660149538128909504}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3660149538128909504
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8012,6 +8000,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9109231622084374742, guid: 03a505dd3b6bba246a7617b1b6a4917e,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9109231622084374742, guid: 03a505dd3b6bba246a7617b1b6a4917e,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9109231622084374742, guid: 03a505dd3b6bba246a7617b1b6a4917e,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9109231622084374742, guid: 03a505dd3b6bba246a7617b1b6a4917e,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.906
       objectReference: {fileID: 0}
@@ -8060,6 +8063,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9109231622084374744, guid: 03a505dd3b6bba246a7617b1b6a4917e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9109231622084374744, guid: 03a505dd3b6bba246a7617b1b6a4917e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ad25964c554bad34ca1e54084c62834c, type: 2}
+    - target: {fileID: 9109231622084374745, guid: 03a505dd3b6bba246a7617b1b6a4917e,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -3029779694418125339, guid: 947eeaf5bbaeb4a3895352b73b6b55ef,
+        type: 3}
     - target: {fileID: 9109231622084374746, guid: 03a505dd3b6bba246a7617b1b6a4917e,
         type: 3}
       propertyPath: menu

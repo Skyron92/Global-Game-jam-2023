@@ -5,10 +5,11 @@ using Random = UnityEngine.Random;
 
 public class Player : MonoBehaviour
 {
+    
     //CharacterController
     private CharacterController characterController;
     private bool _isGrounded => characterController.isGrounded;
-    [SerializeField] private Animator _animator;
+    private Animator _animator;
     public static bool playable = true;
     public bool gameFinished = false;
     
@@ -64,9 +65,12 @@ public class Player : MonoBehaviour
         canJump = true;
     }
 
-    public GameObject GetMenu() {
-        return menu;
+    public static bool _isActive;
+    public bool IsActive
+    {
+        set => menu.SetActive(_isActive);
     }
+    
 
     void Update(){
         Gravity();
@@ -190,8 +194,7 @@ public class Player : MonoBehaviour
     }
 
     private void GameOver() {
-
-        menu.SetActive(true);
+        menu.SetActive(false);
     }
     private void GameFinished(){
         //Ecran de victoire
