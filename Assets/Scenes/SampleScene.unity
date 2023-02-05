@@ -8000,21 +8000,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9109231622084374742, guid: 03a505dd3b6bba246a7617b1b6a4917e,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9109231622084374742, guid: 03a505dd3b6bba246a7617b1b6a4917e,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9109231622084374742, guid: 03a505dd3b6bba246a7617b1b6a4917e,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9109231622084374742, guid: 03a505dd3b6bba246a7617b1b6a4917e,
-        type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.906
       objectReference: {fileID: 0}
@@ -8068,17 +8053,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 9109231622084374744, guid: 03a505dd3b6bba246a7617b1b6a4917e,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: ad25964c554bad34ca1e54084c62834c, type: 2}
-    - target: {fileID: 9109231622084374745, guid: 03a505dd3b6bba246a7617b1b6a4917e,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: -3029779694418125339, guid: 947eeaf5bbaeb4a3895352b73b6b55ef,
-        type: 3}
     - target: {fileID: 9109231622084374746, guid: 03a505dd3b6bba246a7617b1b6a4917e,
         type: 3}
       propertyPath: menu
@@ -8088,6 +8062,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Navet Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 9109231622084374751, guid: 03a505dd3b6bba246a7617b1b6a4917e,
+        type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: 302c1e45f3def274f8a7fc99d034f969, type: 3}
+    - target: {fileID: 9109231622084374751, guid: 03a505dd3b6bba246a7617b1b6a4917e,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03a505dd3b6bba246a7617b1b6a4917e, type: 3}
