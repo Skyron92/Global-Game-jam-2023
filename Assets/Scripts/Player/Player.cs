@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
     //CharacterController
     private CharacterController characterController;
     private bool _isGrounded => characterController.isGrounded;
+    private Animator _animator;
     
     
     //Move Settings
@@ -13,11 +14,14 @@ public class Player : MonoBehaviour
     private Vector3 _direction;
     [Header("Movements Settings")][Range(0,10)][SerializeField] private float speed;
     private float _startSpeed;
+    
    
     //Jump Settings
     [Range(0, 10)] [SerializeField] private float jumpPower;
     private bool canJump;
     [SerializeField] private ParticleSystem jumpParticle;
+    //Set to rand between 7 and 15 when enter in grass
+    private int debuffJump = 0;
     
     //Gravity Settings
     private float _gravity = -9.81f;
@@ -43,27 +47,42 @@ public class Player : MonoBehaviour
     //Menu Settings
     [Header("Menu")] [SerializeField] private GameObject menu;
 
+    //Particule System
+    public ParticleSystem waterSpread;
+
+
     void Awake() {
         characterController = GetComponent<CharacterController>();
+        _animator = GetComponent<Animator>();
         _direction = new Vector3(_input.x, 0, 0);
         _startSpeed = speed;
         canJump = true;
         menu.SetActive(false);
     }
 
-    void Update() {
+    void Update(){
         Gravity();
         MoveCharacter();
+        if(debuffJump > 0 && Input.GetKeyDown(KeyCode.Space)){
+            debuffJump --;
+            if(debuffJump == 0){
+                canJump = true;
+            }
+
+        }
+        _animator.SetFloat("Horizontal", _input.x);
+        if(_velocity >= 1) _animator.SetFloat("Vertical", 1);
+        else _animator.SetFloat("Vertical", 0);
         if (speed < 0) speed = 0;
         if (speed > _startSpeed) speed = _startSpeed;
-        if (_isHurt) {
+       /* if (_isHurt) {
             recoilTimer += Time.deltaTime;
             Recoil();
         }
         else
         {
             recoilTimer = 0;
-        }
+        }*/
 
         if(HydratationManager.currentValue <= 0) GameOver();
     }
@@ -95,7 +114,10 @@ public class Player : MonoBehaviour
     private void OnTriggerEnter(Collider other) {
         if (other.CompareTag("Grass")) {
             speed = Mathf.Lerp(speed, 1, 5f);
-            canJump = !canJump;
+            if(_isGrounded){
+                canJump = !canJump;
+                debuffJump = Random.Range(7,15);
+            }
             jumpParticle.enableEmission = false;
         }
 
@@ -108,7 +130,15 @@ public class Player : MonoBehaviour
 
         if (other.CompareTag("WaterDrop")) {
             HydratationManager.currentValue += WaterValue;
+            waterSpread.Play();
             Destroy(other.gameObject);
+        }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("WaterDrop")){
+            HydratationManager.currentValue += WaterValue;
+            Destroy(collision.gameObject);
         }
     }
     
@@ -135,11 +165,11 @@ public class Player : MonoBehaviour
         menu.SetActive(true);
     }
 
-    private void Recoil() {
+    /*private void Recoil() {
         Debug.Log("Aie");
         distance.y += recoilPower;
         characterController.Move(-distance * Time.deltaTime);
         if (_isGrounded) _isHurt = false;
         if (recoilTimer >= 2) _isHurt = false;
-    }
+    }*/
 }
