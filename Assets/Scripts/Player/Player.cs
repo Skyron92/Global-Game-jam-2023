@@ -64,6 +64,10 @@ public class Player : MonoBehaviour
         canJump = true;
     }
 
+    public GameObject GetMenu() {
+        return menu;
+    }
+
     void Update(){
         Gravity();
         MoveCharacter();
