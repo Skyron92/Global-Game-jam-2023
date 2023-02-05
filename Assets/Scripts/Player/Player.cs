@@ -51,9 +51,7 @@ public class Player : MonoBehaviour
 
     //Menu Settings
     [Header("Menu")] [SerializeField] private GameObject menu;
-
-    //Particule System
-    public ParticleSystem waterSpread;
+    
 
     void Awake()
     {
@@ -153,7 +151,6 @@ public class Player : MonoBehaviour
 
         if (other.CompareTag("WaterDrop")) {
             HydratationManager.currentValue += WaterValue;
-            waterSpread.Play();
             Destroy(other.gameObject);
         }
 
