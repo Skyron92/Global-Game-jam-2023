@@ -15,7 +15,7 @@ public class CreateLevel : MonoBehaviour
     public GameObject droplet;
     public GameObject playerGB;
 
-    private Vector3 initialPosition = new Vector3(0, 1.5f, 0.4f);
+    private Vector3 initialPosition = new Vector3(0, 1.5f, 0);
 
     
     public static float remainingTime = 15;
@@ -49,9 +49,9 @@ public class CreateLevel : MonoBehaviour
                rand = Random.Range(0,isDropletOnBlock.Count);
             }
             if(IsLevelValid(isDropletOnBlock[rand], displayedLevel)){
-                Instantiate(isDropletOnBlock[rand], new Vector3((i+1)*blockWidth, 0, 0), Quaternion.Euler(-90f, 0f, 0f));
+                Instantiate(isDropletOnBlock[rand], new Vector3((i+1)*blockWidth, 0, 0), Quaternion.Euler(90f, 0f, 0f));
                 if(isDropletOnBlock[rand].name.Contains("Platform")){ 
-                    Instantiate(ground, new Vector3((i+1)*blockWidth, 0, 0), Quaternion.Euler(-90f, 0f, 0f));
+                    Instantiate(ground, new Vector3((i+1)*blockWidth, 0, 0), Quaternion.Euler(90f, 0f, 0f));
                 }
             }
             else{
@@ -61,15 +61,12 @@ public class CreateLevel : MonoBehaviour
         }
         }
 
-        Instantiate(finish, new Vector3((mapSize)*blockWidth+blockWidth, 0, 0), Quaternion.Euler(-90f, 0f, 0f));
+        Instantiate(finish, new Vector3((mapSize)*blockWidth+blockWidth, 0, 0), Quaternion.Euler(90f, 0f, 0f));
 
     }
 
-    public void startGame()
-    {
-        Player._isActive = false;
+    public void startGame(){
         playerGB.transform.position = initialPosition;
         HydratationManager.currentValue = 100;
-
     }
 }
