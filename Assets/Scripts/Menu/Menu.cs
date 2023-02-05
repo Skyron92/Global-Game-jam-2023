@@ -24,7 +24,6 @@ public class Menu : MonoBehaviour
         if (timerIsOn) timer += Time.deltaTime;
         Debug.Log(timer);
     }
-    
 
     public void Retry() {
         SceneManager.LoadScene("SampleScene");
@@ -32,8 +31,8 @@ public class Menu : MonoBehaviour
     
 
     public void Quit() {
-        EditorApplication.isPlaying = false;
-        Application.Quit();
+       /* EditorApplication.isPlaying = false;
+        Application.Quit();*/
     }
 
     public void CloseCredit() {

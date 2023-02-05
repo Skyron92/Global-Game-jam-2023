@@ -31,6 +31,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Touch",
+                    "type": "Value",
+                    "id": "10f00d63-6249-4f50-893a-2b78dfb8e052",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -233,7 +242,7 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "Space",
+                    "name": "Shift",
                     "id": "be95e19a-e505-42dd-8872-6efbd0005d38",
                     "path": "1DAxis",
                     "interactions": "",
@@ -495,6 +504,17 @@
                     "action": "Crounch",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "417167c7-8176-4101-92f7-43c28cec279b",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Touch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
