@@ -254,6 +254,7 @@ MonoBehaviour:
   - {fileID: 6111176453124728716, guid: d91ae1cd0f9f6452a933ac81e2b2e2d2, type: 3}
   - {fileID: 7881151317921138014, guid: d38ccf054ff604eeebc324d47fe25be5, type: 3}
   - {fileID: 6602284953608692686, guid: 1306cd2fc3e14478cb8a539ff05eeae4, type: 3}
+  - {fileID: 6602284953608692686, guid: 1306cd2fc3e14478cb8a539ff05eeae4, type: 3}
   ground: {fileID: 6602284953608692686, guid: 6e9d0f7e9a98a4559812046c71d33a14, type: 3}
   mapSize: 10
   start: {fileID: 5558659952136581570, guid: c59db806c14e74724b1fb8f025bee436, type: 3}
