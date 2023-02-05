@@ -65,11 +65,8 @@ public class CreateLevel : MonoBehaviour
 
     }
 
-    public void startGame()
-    {
-        Player._isActive = false;
+    public void startGame(){
         playerGB.transform.position = initialPosition;
         HydratationManager.currentValue = 100;
-
     }
 }
