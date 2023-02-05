@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     private bool _isGrounded => characterController.isGrounded;
     [SerializeField] private Animator _animator;
     public static bool playable = true;
+    public bool gameFinished = false;
     
     
     //Move Settings
