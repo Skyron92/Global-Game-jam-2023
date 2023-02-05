@@ -61,6 +61,7 @@ public class Player : MonoBehaviour
         _direction = new Vector3(_input.x, 0, 0);
         _startSpeed = speed;
         canJump = true;
+
     }
 
     public static bool _isActive;
@@ -71,6 +72,15 @@ public class Player : MonoBehaviour
     
 
     void Update(){
+        if(transform.position.z != 0){
+            Vector3 toto = transform.position;
+            toto.z = 0;
+            transform.position = toto;
+        }
+        if(HydratationManager.currentValue == 0){
+
+        }
+    
         Gravity();
         MoveCharacter();
         RotatePlayer();
@@ -145,7 +155,6 @@ public class Player : MonoBehaviour
         if (other.CompareTag("Enemy")) {
             _isHurt = true;
             HydratationManager.currentValue -= Damages;
-            distance = transform.position - other.transform.position;
             Invulnerability();
         }
 
@@ -197,6 +206,7 @@ public class Player : MonoBehaviour
         //Ecran de victoire
         Debug.Log("Felicitation, vous avez gagné");
         gameFinished = true;
+        Menu.SetActive(true);
     }
 
     /*private void Recoil() {
