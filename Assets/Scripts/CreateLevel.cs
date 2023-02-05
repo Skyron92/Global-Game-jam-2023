@@ -6,6 +6,7 @@ public class CreateLevel : MonoBehaviour
 {
     public List<GameObject> level;
     public List<GameObject> levelWithDroplet;
+    public List<GameObject> levelWithRonce;
     public GameObject ground;
     public int mapSize;
     private int blockWidth = 5;
@@ -47,6 +48,10 @@ public class CreateLevel : MonoBehaviour
             if(isDroplet < 20){
                isDropletOnBlock = levelWithDroplet;
                rand = Random.Range(0,isDropletOnBlock.Count);
+            }
+            if(isDroplet <= 30 && isDroplet >= 20){
+                isDropletOnBlock = levelWithRonce;
+                rand = Random.Range(0,isDropletOnBlock.Count);
             }
             if(IsLevelValid(isDropletOnBlock[rand], displayedLevel)){
                 Instantiate(isDropletOnBlock[rand], new Vector3((i+1)*blockWidth, 0, 0), Quaternion.Euler(-90f, 0, 0f));
