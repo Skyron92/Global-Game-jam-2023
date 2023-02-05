@@ -15,7 +15,7 @@ public class CreateLevel : MonoBehaviour
     public GameObject droplet;
     public GameObject playerGB;
 
-    private Vector3 initialPosition = new Vector3(0, 1.5f, 0.4f);
+    private Vector3 initialPosition = new Vector3(0, 1.5f, 0);
 
     
     public static float remainingTime = 15;
