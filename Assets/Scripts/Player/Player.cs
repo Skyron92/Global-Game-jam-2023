@@ -7,6 +7,10 @@ public class Player : MonoBehaviour
     private CharacterController characterController;
     private bool _isGrounded => characterController.isGrounded;
     private Animator _animator;
+
+    //Character Settings
+    public bool gameOver;
+    public bool gameFinished;
     
     
     //Move Settings
@@ -58,6 +62,7 @@ public class Player : MonoBehaviour
         _startSpeed = speed;
         canJump = true;
         menu.SetActive(false);
+        
     }
 
     void Update(){
@@ -68,7 +73,6 @@ public class Player : MonoBehaviour
             if(debuffJump == 0){
                 canJump = true;
             }
-
         }
         _animator.SetFloat("Horizontal", _input.x);
         if(_velocity >= 1) _animator.SetFloat("Vertical", 1);
@@ -133,6 +137,13 @@ public class Player : MonoBehaviour
             waterSpread.Play();
             Destroy(other.gameObject);
         }
+
+        if(other.CompareTag("Finish")){
+            GameFinished();
+        }
+         if(other.CompareTag("Fall")){
+            GameOver();
+        }
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -162,7 +173,13 @@ public class Player : MonoBehaviour
     }
 
     private void GameOver() {
+
         menu.SetActive(true);
+    }
+    private void GameFinished(){
+        //Ecran de victoire
+        Debug.Log("Felicitation, vous avez gagné");
+        gameFinished = true;
     }
 
     /*private void Recoil() {

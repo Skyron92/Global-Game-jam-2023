@@ -255,9 +255,9 @@ MonoBehaviour:
   - {fileID: 5558659952136581570, guid: 3c90a4bac61554a4190bb9d7f18edf8d, type: 3}
   - {fileID: 6602284953608692686, guid: 6e9d0f7e9a98a4559812046c71d33a14, type: 3}
   - {fileID: 2629402035703301837, guid: 943a1d46cb2724a71951ed218a962827, type: 3}
-  mapSize: 35
-  start: {fileID: 919132149034808665}
-  finish: {fileID: 4470419995828396441, guid: 9f816b0f6d2614da4a209e62052c64c8, type: 3}
+  mapSize: 0
+  start: {fileID: 5558659952136581570, guid: c59db806c14e74724b1fb8f025bee436, type: 3}
+  finish: {fileID: 2629402035703301837, guid: 3684282dd07ad4ffcadb58646b3ab716, type: 3}
   droplet: {fileID: 2225673130257353013, guid: fe4817b0a1e674b9f9b9906ce7289e00, type: 3}
 --- !u!4 &138954113
 Transform:
@@ -6922,6 +6922,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 652007d12430ae34589da23b81f4596a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOver: 0
+  gameFinished: 0
   speed: 4
   jumpPower: 3.5
   jumpParticle: {fileID: 436068412}
@@ -7387,12 +7389,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2135451525}
   m_CullTransparentMesh: 1
---- !u!1 &919132149034808665 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4470419995828396441, guid: 9f816b0f6d2614da4a209e62052c64c8,
-    type: 3}
-  m_PrefabInstance: {fileID: 3660149538128909504}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3660149538128909504
 PrefabInstance:
   m_ObjectHideFlags: 0
