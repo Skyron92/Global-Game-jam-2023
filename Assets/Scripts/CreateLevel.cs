@@ -5,7 +5,8 @@ using UnityEngine;
 public class CreateLevel : MonoBehaviour
 {
     public List<GameObject> level;
-    public List<GameObject> ground;
+    public List<GameObject> levelWithDroplet;
+    public GameObject ground;
     public int mapSize;
     private int blockWidth = 5;
     private MeshRenderer levelSize;
@@ -20,49 +21,40 @@ public class CreateLevel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        int maxWidth = mapSize * blockWidth;
-        
         GameObject displayedLevel = start;
-
-        float dividende = Mathf.Round(maxWidth*0.9f/10);
-        Debug.Log(dividende);
-
-        for(int i = 0; i < dividende ; i++){
-            if((i+1)*dividende % 2 == 0){
-                Instantiate(droplet, new Vector3((i+1)*dividende, 4, 0.3f), Quaternion.identity);
-            }
-        
-        }
+        List<GameObject> isDropletOnBlock = level;
 
         if(mapSize > 0){
 
         for(int i = 0; i < mapSize; i++){
 
             int rand = Random.Range(0, level.Count);
+            int isDroplet = Random.Range(1,100);
 
-                if(IsLevelValid(level[rand], displayedLevel)){
-                    Instantiate(level[rand], new Vector3((i+1)*blockWidth, 0, 0), Quaternion.Euler(-90f, 0f, 0f));
-                    if(level[rand].name.Contains("Platform")){
-                        int randPlat = Random.Range(0,3);
-                        Instantiate(ground[randPlat], new Vector3((i+1)*blockWidth, 0, 0), Quaternion.Euler(-90f, 0f, 0f));
-                    };
-                }else{
+            if(isDroplet < 20){
+               isDropletOnBlock = levelWithDroplet;
+               rand = Random.Range(0,isDropletOnBlock.Count);
+            }
+            
+            if(IsLevelValid(isDropletOnBlock[rand], displayedLevel)){
+                
+                Instantiate(isDropletOnBlock[rand], new Vector3((i+1)*blockWidth, 0, 0), Quaternion.Euler(-90f, 0f, 0f));
+                if(isDropletOnBlock[rand].name.Contains("Platform")){ 
+                    Instantiate(ground, new Vector3((i+1)*blockWidth, 0, 0), Quaternion.Euler(-90f, 0f, 0f));
+                }
+            }else{
                     i--;
                 }
 
-            displayedLevel = level[rand];
+            displayedLevel = isDropletOnBlock[rand];
         }
         }
-        
+
         Instantiate(finish, new Vector3((mapSize)*blockWidth+blockWidth, 0, 0), Quaternion.Euler(-90f, 0f, 0f));
 
-    }
+     
+    }     
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private bool IsLevelValid(GameObject toDisplay, GameObject lastDisplayed){
 
