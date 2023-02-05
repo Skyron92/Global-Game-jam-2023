@@ -6163,8 +6163,8 @@ MonoBehaviour:
   recoilPower: 1
   Damages: 30
   invulnerabilityDuration: 1
-  DecreaseSpeed: 0.05
-  WaterValue: 20
+  DecreaseSpeed: 0.1
+  WaterValue: 10
   menu: {fileID: 0}
 --- !u!143 &9109231622084374749
 CharacterController:
