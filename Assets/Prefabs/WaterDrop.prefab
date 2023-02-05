@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2451971208323816490}
   - component: {fileID: 424413254856517856}
   - component: {fileID: -4307429476628952789}
+  - component: {fileID: 8148843748851857046}
   m_Layer: 0
   m_Name: WaterDrop
   m_TagString: WaterDrop
@@ -99,6 +100,19 @@ CapsuleCollider:
   m_Height: 0.36407205
   m_Direction: 1
   m_Center: {x: 0.0150761455, y: 0.011117712, z: 0.030567005}
+--- !u!114 &8148843748851857046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2225673130257353013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc7520c781f549458a43578fc16fa41d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drop: {fileID: 1802611811383336324}
 --- !u!1001 &9155264000767143920
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -168,6 +182,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc389f943157549ce89419c5cc40ee3b, type: 3}
+--- !u!198 &1802611811383336324 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7352726717846844020, guid: fc389f943157549ce89419c5cc40ee3b,
+    type: 3}
+  m_PrefabInstance: {fileID: 9155264000767143920}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3204092986002495920 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6014893213345281600, guid: fc389f943157549ce89419c5cc40ee3b,

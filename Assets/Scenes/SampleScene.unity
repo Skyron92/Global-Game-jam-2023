@@ -6781,6 +6781,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: VFX_WaterDrop
       objectReference: {fileID: 0}
+    - target: {fileID: 6014893213345281600, guid: fc389f943157549ce89419c5cc40ee3b,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc389f943157549ce89419c5cc40ee3b, type: 3}
 --- !u!4 &945017027 stripped
@@ -9692,8 +9697,13 @@ PrefabInstance:
       objectReference: {fileID: 1226442524}
     - target: {fileID: 9109231622084374746, guid: 03a505dd3b6bba246a7617b1b6a4917e,
         type: 3}
-      propertyPath: jumpPower
-      value: 4
+      propertyPath: WaterValue
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 9109231622084374746, guid: 03a505dd3b6bba246a7617b1b6a4917e,
+        type: 3}
+      propertyPath: DecreaseSpeed
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 9109231622084374750, guid: 03a505dd3b6bba246a7617b1b6a4917e,
         type: 3}
