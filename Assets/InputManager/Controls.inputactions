@@ -242,7 +242,7 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "Space",
+                    "name": "Shift",
                     "id": "be95e19a-e505-42dd-8872-6efbd0005d38",
                     "path": "1DAxis",
                     "interactions": "",

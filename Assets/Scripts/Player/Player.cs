@@ -1,16 +1,15 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Random = UnityEngine.Random;
 
 public class Player : MonoBehaviour
 {
     //CharacterController
     private CharacterController characterController;
     private bool _isGrounded => characterController.isGrounded;
-    private Animator _animator;
-
-    //Character Settings
-    public bool gameOver;
-    public bool gameFinished;
+    [SerializeField] private Animator _animator;
+    public static bool playable = true;
     
     
     //Move Settings
@@ -54,60 +53,70 @@ public class Player : MonoBehaviour
     //Particule System
     public ParticleSystem waterSpread;
 
-
-    void Awake() {
+    void Awake()
+    {
+        playable = true;
         characterController = GetComponent<CharacterController>();
         _animator = GetComponent<Animator>();
         _direction = new Vector3(_input.x, 0, 0);
         _startSpeed = speed;
         canJump = true;
-        menu.SetActive(false);
-        
     }
 
     void Update(){
         Gravity();
         MoveCharacter();
+        RotatePlayer();
         if(debuffJump > 0 && Input.GetKeyDown(KeyCode.Space)){
             debuffJump --;
             if(debuffJump == 0){
                 canJump = true;
             }
         }
-        _animator.SetFloat("Horizontal", _input.x);
-        if(_velocity >= 1) _animator.SetFloat("Vertical", 1);
+        /*if(!playable) menu.SetActive(true);
+        else menu.SetActive(false);*/
+        _animator.SetFloat("Horizontal", _direction.x);
+        if(_velocity > 0) _animator.SetFloat("Vertical", _direction.y);
         else _animator.SetFloat("Vertical", 0);
         if (speed < 0) speed = 0;
         if (speed > _startSpeed) speed = _startSpeed;
-       /* if (_isHurt) {
-            recoilTimer += Time.deltaTime;
-            Recoil();
-        }
-        else
-        {
-            recoilTimer = 0;
-        }*/
-
-        if(HydratationManager.currentValue <= 0) GameOver();
+        Debug.Log(playable);
+        if(HydratationManager.currentValue <= 90) {GameOver();}
     }
 
     public void Move(InputAction.CallbackContext context) {
+        if(!playable) return;
         if(_isHurt) return;
         _input = context.ReadValue<Vector2>();
         _direction = new Vector3(_input.x, 0, 0);
     }
 
     private void MoveCharacter() {
+        if(!playable) return;
         characterController.Move(_direction * (speed * Time.deltaTime));
     }
+    
+    private void RotatePlayer() {
+        if(!playable) return;
+        if(_input == Vector3.zero) return;
+        float rotationAngle = Vector3.Angle(_direction, Vector3.forward);
+        if (_direction.x < 0) rotationAngle = -rotationAngle;
+        Quaternion rotation = Quaternion.Euler(0,rotationAngle,0);
+        if (90 + rotationAngle < 180 && 90 + rotationAngle > 0) rotation.y = 90;
+        if (-90 - rotationAngle > 0 && -90 - rotationAngle < -180) rotation.y = -90;
+        transform.rotation = rotation;
+    }
+
 
     private void Gravity() {
+        if(!playable) return;
         if (_isGrounded && _velocity < 0) _velocity = -1.0f;
         _velocity += _gravity * heigh * Time.deltaTime;
         _direction.y = _velocity;
     }
 
     public void Jump(InputAction.CallbackContext context) {
+        if(!playable) return;
         if(!context.started) return;
         if(!_isGrounded) return;
         if(!canJump) return;
@@ -116,6 +125,7 @@ public class Player : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other) {
+        if(!playable) return;
         if (other.CompareTag("Grass")) {
             speed = Mathf.Lerp(speed, 1, 5f);
             if(_isGrounded){
@@ -145,8 +155,8 @@ public class Player : MonoBehaviour
             GameOver();
         }
     }
-    private void OnCollisionEnter(Collision collision)
-    {
+    private void OnCollisionEnter(Collision collision) {
+        if(!playable) return;
         if(collision.gameObject.CompareTag("WaterDrop")){
             HydratationManager.currentValue += WaterValue;
             Destroy(collision.gameObject);
@@ -154,6 +164,7 @@ public class Player : MonoBehaviour
     }
     
     private void OnControllerColliderHit(ControllerColliderHit hit) {
+        if(!playable) return;
         if (hit.collider.CompareTag("BrokenGround")) {
             BrokenGround context = hit.collider.GetComponent<BrokenGround>();
             context.wobble = true;
@@ -161,6 +172,7 @@ public class Player : MonoBehaviour
     }
 
     private void OnTriggerExit(Collider other) {
+        if(!playable) return;
         if (other.CompareTag("Grass")) {
             speed = Mathf.Lerp(speed, _startSpeed, 1f);
             canJump = !canJump;
