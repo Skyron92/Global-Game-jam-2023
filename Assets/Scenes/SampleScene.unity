@@ -6584,7 +6584,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1412216291
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6932,6 +6932,8 @@ MonoBehaviour:
   DecreaseSpeed: 0.05
   WaterValue: 20
   menu: {fileID: 1226442524}
+  waterSpread: {fileID: 660572099871067404, guid: fc389f943157549ce89419c5cc40ee3b,
+    type: 3}
 --- !u!136 &1689062568
 CapsuleCollider:
   m_ObjectHideFlags: 0
