@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 3837576925230398243}
   - component: {fileID: 211128724548547718}
   - component: {fileID: 2669195581352050764}
-  - component: {fileID: 3660149537085294856}
+  - component: {fileID: 9112825419810283962}
   m_Layer: 0
   m_Name: 00_StraightBreakFloor
   m_TagString: Untagged
@@ -130,7 +130,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3660149537085294856
+--- !u!65 &9112825419810283962
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,5 +141,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.049999993, y: 0.007976497, z: 0.0023264783}
-  m_Center: {x: 0, y: -0.0039882464, z: 0.0068132575}
+  m_Size: {x: 0.049999993, y: 0.0079765, z: 0.0023264792}
+  m_Center: {x: 0, y: 0, z: 0.0068132603}
