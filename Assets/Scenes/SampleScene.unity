@@ -260,6 +260,7 @@ MonoBehaviour:
   start: {fileID: 5558659952136581570, guid: c59db806c14e74724b1fb8f025bee436, type: 3}
   finish: {fileID: 2629402035703301837, guid: 3684282dd07ad4ffcadb58646b3ab716, type: 3}
   droplet: {fileID: 2225673130257353013, guid: fe4817b0a1e674b9f9b9906ce7289e00, type: 3}
+  playerGB: {fileID: 1689062564}
 --- !u!4 &138954113
 Transform:
   m_ObjectHideFlags: 0
