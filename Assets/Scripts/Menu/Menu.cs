@@ -24,7 +24,6 @@ public class Menu : MonoBehaviour
         if (timerIsOn) timer += Time.deltaTime;
         Debug.Log(timer);
     }
-    
 
     public void Retry() {
         SceneManager.LoadScene("SampleScene");
