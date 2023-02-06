@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4953941519601558198}
   - component: {fileID: 1074615468734943428}
   m_Layer: 0
-  m_Name: FinishArea
+  m_Name: FallArea
   m_TagString: Fall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 3796528045942669279}
   - component: {fileID: 6714068157014046780}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: FinishArea
   m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102,6 +102,7 @@ GameObject:
   - component: {fileID: 1772597469334967250}
   - component: {fileID: 4574952745091950360}
   - component: {fileID: 8296432188214990406}
+  - component: {fileID: 3749297010479422095}
   m_Layer: 0
   m_Name: finish
   m_TagString: Untagged
@@ -188,11 +189,24 @@ MeshCollider:
   m_GameObject: {fileID: 2629402035703301837}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 2645015015992573930, guid: cc86b82f0afb6bf428d937b7b5255b73, type: 3}
+--- !u!65 &3749297010479422095
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2629402035703301837}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.026932, y: 3.0000007, z: 0.8296499}
+  m_Center: {x: 1.017659, y: -0.000050902367, z: 0.4142271}
 --- !u!1001 &3696190689971270108
 PrefabInstance:
   m_ObjectHideFlags: 0
