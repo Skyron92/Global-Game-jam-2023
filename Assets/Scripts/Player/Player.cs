@@ -1,4 +1,5 @@
 using System;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Random = UnityEngine.Random;
@@ -12,6 +13,7 @@ public class Player : MonoBehaviour
     private Animator _animator;
     public static bool playable = true;
     public bool gameFinished = false;
+    private Vector3 _currentPosition;
     
     
     //Move Settings
@@ -71,20 +73,14 @@ public class Player : MonoBehaviour
     }
     
 
-    void Update(){
-        if(transform.position.z != 0){
-            Vector3 toto = transform.position;
-            toto.z = 0;
-            transform.position = toto;
-        }
-        if(HydratationManager.currentValue == 0){
-
-        }
-    
-        Gravity();
-        MoveCharacter();
-        RotatePlayer();
-        if(debuffJump > 0 && Input.GetKeyDown(KeyCode.Space)){
+    void Update()
+    {
+        _currentPosition = transform.position;
+        FixPlayerPosition(_currentPosition);
+       Gravity();
+       MoveCharacter();
+       RotatePlayer();
+       if(debuffJump > 0 && Input.GetKeyDown(KeyCode.Space)){
             debuffJump --;
             if(debuffJump == 0){
                 canJump = true;
@@ -212,6 +208,12 @@ public class Player : MonoBehaviour
         menu.SetActive(true);
     }
 
+    private void FixPlayerPosition(Vector3 playerPosition)
+    {
+        if (playerPosition.z == 0) return;
+        playerPosition = new Vector3(playerPosition.x, playerPosition.y, 0);
+        transform.position = playerPosition;
+    }
     /*private void Recoil() {
         Debug.Log("Aie");
         distance.y += recoilPower;

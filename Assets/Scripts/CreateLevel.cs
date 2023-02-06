@@ -14,9 +14,9 @@ public class CreateLevel : MonoBehaviour
     public GameObject start;
     public GameObject finish;
     public GameObject droplet;
-    public GameObject playerGB;
+    public GameObject playerGO;
 
-    private Vector3 initialPosition = new Vector3(0, 1.5f, -0.4f);
+    private Vector3 initialPosition = new Vector3(0, 1.5f, 0);
 
     
     public static float remainingTime = 15;
@@ -32,16 +32,15 @@ public class CreateLevel : MonoBehaviour
 
 
     private bool IsLevelValid(GameObject toDisplay, GameObject lastDisplayed){
-
         return (toDisplay.name[0] == lastDisplayed.name[1]);
-        
     }
 
     private void generateLevel(){
-         GameObject displayedLevel = start;
+        GameObject displayedLevel = start;
         List<GameObject> isDropletOnBlock = level;
 
         if(mapSize > 0){
+            
         for(int i = 0; i < mapSize; i++){
             int rand = Random.Range(0, level.Count);
             int isDroplet = Random.Range(1,100);
@@ -65,13 +64,11 @@ public class CreateLevel : MonoBehaviour
             displayedLevel = isDropletOnBlock[rand];
         }
         }
-
         Instantiate(finish, new Vector3((mapSize)*blockWidth+blockWidth, 0, 0), Quaternion.Euler(-90f, 0f, 0f));
-
     }
 
     public void startGame(){
-        playerGB.transform.position = initialPosition;
+        playerGO.transform.position = initialPosition;
         HydratationManager.currentValue = 100f;
     }
 }
