@@ -97,7 +97,6 @@ public class Player : MonoBehaviour
         else _animator.SetFloat("Vertical", 0);
         if (speed < 0) speed = 0;
         if (speed > _startSpeed) speed = _startSpeed;
-        Debug.Log(playable);
         if(HydratationManager.currentValue <= 90) {GameOver();}
     }
 
@@ -160,7 +159,11 @@ public class Player : MonoBehaviour
 
         if (other.CompareTag("WaterDrop")) {
             HydratationManager.currentValue += WaterValue;
-            Destroy(other.gameObject);
+            ParticleSystem vfxDroplet = other.GetComponentInChildren<ParticleSystem>();
+            vfxDroplet.Play();
+            other.gameObject.GetComponent<CapsuleCollider>().enabled = false;
+            other.gameObject.GetComponent<MeshRenderer>().enabled = false;
+
         }
 
         if(other.CompareTag("Finish")){
