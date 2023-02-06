@@ -203,7 +203,7 @@ public class Player : MonoBehaviour
     }
 
     private void GameOver() {
-        menu.SetActive(false);
+        menu.SetActive(true);
     }
     private void GameFinished(){
         //Ecran de victoire
