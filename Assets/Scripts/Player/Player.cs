@@ -206,7 +206,6 @@ public class Player : MonoBehaviour
         //Ecran de victoire
         Debug.Log("Felicitation, vous avez gagné");
         gameFinished = true;
-        Menu.SetActive(true);
     }
 
     /*private void Recoil() {
