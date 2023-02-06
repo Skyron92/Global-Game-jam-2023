@@ -1110,7 +1110,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Cr\xE9dits\n"
+  m_text: Credits
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 40c571d168469f04a929f9bb7ccd7a48, type: 2}
   m_sharedMaterial: {fileID: -4165290794773055796, guid: 40c571d168469f04a929f9bb7ccd7a48,
@@ -7921,8 +7921,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1707130590}
   - {fileID: 1844812265}
+  - {fileID: 1707130590}
   - {fileID: 1497881235}
   m_Father: {fileID: 1609472952}
   m_RootOrder: 6
@@ -8874,7 +8874,7 @@ GameObject:
   - component: {fileID: 1497881237}
   - component: {fileID: 1497881236}
   m_Layer: 5
-  m_Name: "cr\xE9dit"
+  m_Name: Credits
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10060,7 +10060,7 @@ RectTransform:
   m_Children:
   - {fileID: 840677251}
   m_Father: {fileID: 1183870790}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -11289,7 +11289,7 @@ RectTransform:
   m_Children:
   - {fileID: 1149326215}
   m_Father: {fileID: 1183870790}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
