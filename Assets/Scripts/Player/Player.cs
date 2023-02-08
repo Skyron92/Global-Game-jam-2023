@@ -51,6 +51,10 @@ public class Player : MonoBehaviour
     //Menu Settings
     [Header("Menu")] [SerializeField] private GameObject menu;
     
+    //Sound settings
+    [SerializeField] private AudioSource walkSFX;
+    [SerializeField] private AudioSource jumpSFX;
+    [SerializeField] private AudioSource rootSFX;
 
     void Awake()
     {
@@ -97,6 +101,10 @@ public class Player : MonoBehaviour
     public void Move(InputAction.CallbackContext context) {
         if(!playable) return;
         if(_isHurt) return;
+        if (context.canceled) {
+            walkSFX.Stop();
+            _direction = Vector3.zero;
+        }
         _input = context.ReadValue<Vector2>();
         _direction = new Vector3(_input.x, 0, 0);
     }
@@ -115,6 +123,7 @@ public class Player : MonoBehaviour
         if (90 + rotationAngle < 180 && 90 + rotationAngle > 0) rotation.y = 90;
         if (-90 - rotationAngle > 0 && -90 - rotationAngle < -180) rotation.y = -90;
         transform.rotation = rotation;
+        if(!walkSFX.isPlaying) walkSFX.Play();
     }
 
 
@@ -131,6 +140,7 @@ public class Player : MonoBehaviour
         if(!_isGrounded) return;
         if(!canJump) return;
         _velocity += jumpPower;
+        jumpSFX.Play();
         jumpParticle.Play();
     }
 
@@ -162,6 +172,8 @@ public class Player : MonoBehaviour
         if(other.CompareTag("Finish")){
             _animator.SetFloat("Horizontal", 0);
             _animator.SetBool("GameEnded", true);
+            walkSFX.Stop();
+            rootSFX.Play();
             TranslateToTheBottom();
             GameFinished();
         }
