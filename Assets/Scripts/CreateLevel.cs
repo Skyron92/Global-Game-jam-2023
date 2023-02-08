@@ -68,17 +68,19 @@ public class CreateLevel : MonoBehaviour
     public GameObject SelectBlock(){
         //lancer un dé
         int randNumber = Random.Range(0,100);
-        if(randNumber <= difficulty && !displayedLevel.name.Contains("Ronce")){
+
+        if(randNumber <= difficulty && !displayedLevel.name.Contains("ronce")){
             currentList = levelWithRonce;
         }
-        if(randNumber > difficulty && randNumber <= 50 && !displayedLevel.name.Contains("Droplet")){
+        else if(randNumber > difficulty && randNumber <= 50 && !displayedLevel.name.Contains("droplet")){
             currentList = levelWithDroplet;
         }
         else{
             currentList = level;
-    }
+        }
 
     int randBlockFromList = Random.Range(0, currentList.Count);
+
     return currentList[randBlockFromList];
     }
     
