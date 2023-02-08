@@ -163,6 +163,7 @@ public class Player : MonoBehaviour
         }
 
         if(other.CompareTag("Finish")){
+            _animator.SetBool("GameEnded", true);
             GameFinished();
         }
          if(other.CompareTag("Fall")){
