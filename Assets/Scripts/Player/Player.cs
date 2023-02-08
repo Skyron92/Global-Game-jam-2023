@@ -41,13 +41,10 @@ public class Player : MonoBehaviour
     [Range(0, 10)] [SerializeField] private float recoilPower;
     [Range(0, 100)] [SerializeField] private float Damages;
     [Range(0, 10)] [SerializeField] private float invulnerabilityDuration;
-    private float invulnerabilityTimer;
     private float recoilTimer;
     private bool _isHurt;
-    private Vector3 distance = new Vector3();
-    
+
     //Thirst Settings 
-    private float thirst = 1;
     [Tooltip("Vitesse à laquelle la barre de soif diminue.")] [Range(0, 0.100f)] [SerializeField] private float DecreaseSpeed;
     [Tooltip("Quantité d'eau redonnée par chaque goutte.")][Range(0, 100)] [SerializeField] private float WaterValue;
 
@@ -151,7 +148,6 @@ public class Player : MonoBehaviour
         if (other.CompareTag("Enemy")) {
             _isHurt = true;
             HydratationManager.currentValue -= Damages;
-            Invulnerability();
         }
 
         if (other.CompareTag("WaterDrop")) {
@@ -196,10 +192,6 @@ public class Player : MonoBehaviour
             canJump = !canJump;
             jumpParticle.enableEmission = true;
         }
-    }
-
-    private void Invulnerability() {
-        invulnerabilityTimer = 0;
     }
 
     private void GameOver() {
