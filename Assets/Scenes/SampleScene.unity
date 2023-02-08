@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -171,7 +171,8 @@ MonoBehaviour:
   - {fileID: 6760004738675035262, guid: d69c526523ec64d2a829a7690bbdf889, type: 3}
   - {fileID: 6111176453124728716, guid: 0b66db4ea6bf64b12849b1c343057af8, type: 3}
   ground: {fileID: 6602284953608692686, guid: 6e9d0f7e9a98a4559812046c71d33a14, type: 3}
-  mapSize: 10
+  mapSize: 20
+  difficulty: 5
   start: {fileID: 5558659952136581570, guid: c59db806c14e74724b1fb8f025bee436, type: 3}
   finish: {fileID: 2629402035703301837, guid: 3684282dd07ad4ffcadb58646b3ab716, type: 3}
   droplet: {fileID: 2225673130257353013, guid: fe4817b0a1e674b9f9b9906ce7289e00, type: 3}

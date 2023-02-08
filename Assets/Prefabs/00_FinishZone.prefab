@@ -105,7 +105,7 @@ GameObject:
   - component: {fileID: 3749297010479422095}
   - component: {fileID: 1418199192459051522}
   m_Layer: 0
-  m_Name: FinishZone
+  m_Name: 00_FinishZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
