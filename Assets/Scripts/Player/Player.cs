@@ -75,11 +75,12 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        _currentPosition = transform.position;
-        FixPlayerPosition(_currentPosition);
+        //_currentPosition = transform.position;
+        FixPlayerPosition(transform.position);
        Gravity();
        MoveCharacter();
        RotatePlayer();
+       TranslateToTheBottom();
        if(debuffJump > 0 && Input.GetKeyDown(KeyCode.Space)){
             debuffJump --;
             if(debuffJump == 0){
@@ -163,7 +164,9 @@ public class Player : MonoBehaviour
         }
 
         if(other.CompareTag("Finish")){
+            _animator.SetFloat("Horizontal", 0);
             _animator.SetBool("GameEnded", true);
+            TranslateToTheBottom();
             GameFinished();
         }
          if(other.CompareTag("Fall")){
@@ -211,9 +214,26 @@ public class Player : MonoBehaviour
 
     private void FixPlayerPosition(Vector3 playerPosition)
     {
-        if (playerPosition.z == 0) return;
-        playerPosition = new Vector3(playerPosition.x, playerPosition.y, 0);
-        transform.position = playerPosition;
+        if (playerPosition.z == 0.0000) return;
+        /*playerPosition = new Vector3(playerPosition.x, playerPosition.y, 0.000f);
+        transform.position = playerPosition;*/
+        playerPosition.z = 0.00f;
+    }
+
+    private void TranslateToTheBottom() {
+        if(!gameFinished) return;
+        heigh = 0;
+        jumpPower = 0;
+        speed = 0;
+        float timer = Time.deltaTime;
+        Vector3 position = transform.position;
+        float Y = Mathf.Lerp(position.y, 0.9f, timer/2);
+        position.y = Y;
+        transform.position = position;
+        var rotation = transform.rotation;
+        var target = new Quaternion(0, 180, 0,0);
+        var rotate = Quaternion.Slerp(rotation, target, timer);
+        transform.rotation = rotate;
     }
     /*private void Recoil() {
         Debug.Log("Aie");
