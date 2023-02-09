@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -4307429476628952789}
   - component: {fileID: 8148843748851857046}
   - component: {fileID: -1956773149985634465}
+  - component: {fileID: 42450110099986397}
   m_Layer: 0
   m_Name: WaterDrop
   m_TagString: WaterDrop
@@ -210,6 +211,26 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &42450110099986397
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2225673130257353013}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d1f258a4c9c114a45ac474601487ef6a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &9155264000767143920
 PrefabInstance:
   m_ObjectHideFlags: 0
