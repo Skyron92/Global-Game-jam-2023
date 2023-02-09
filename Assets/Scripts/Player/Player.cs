@@ -100,7 +100,6 @@ public class Player : MonoBehaviour
 
     public void Move(InputAction.CallbackContext context) {
         if(!playable) return;
-        if(_isHurt) return;
         if (context.canceled) {
             walkSFX.Stop();
             _direction = Vector3.zero;
@@ -156,7 +155,6 @@ public class Player : MonoBehaviour
         }
 
         if (other.CompareTag("Enemy")) {
-            _isHurt = true;
             HydratationManager.currentValue -= Damages;
         }
 
