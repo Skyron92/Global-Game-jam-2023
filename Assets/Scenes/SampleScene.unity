@@ -298,7 +298,7 @@ MonoBehaviour:
   - {fileID: 6111176453124728716, guid: 0b66db4ea6bf64b12849b1c343057af8, type: 3}
   - {fileID: 6760004738675035262, guid: d69c526523ec64d2a829a7690bbdf889, type: 3}
   - {fileID: 6111176453124728716, guid: 0b66db4ea6bf64b12849b1c343057af8, type: 3}
-  ground: {fileID: 6602284953608692686, guid: 6e9d0f7e9a98a4559812046c71d33a14, type: 3}
+  ground: {fileID: 6602284953608692686, guid: 129972dee460a9f4ba685f8cd93a7dc3, type: 3}
   mapSize: 15
   difficulty: 20
   start: {fileID: 5558659952136581570, guid: c59db806c14e74724b1fb8f025bee436, type: 3}
