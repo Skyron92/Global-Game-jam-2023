@@ -286,18 +286,21 @@ MonoBehaviour:
   - {fileID: 7881151317921138014, guid: ee4426369a37149a4ab3412ad3426161, type: 3}
   - {fileID: 4470419995828396441, guid: 9f816b0f6d2614da4a209e62052c64c8, type: 3}
   - {fileID: 6602284953608692686, guid: 6e9d0f7e9a98a4559812046c71d33a14, type: 3}
+  - {fileID: 6111176453124728716, guid: b3ed00c61268d3d46ae4531c8af69305, type: 3}
   levelWithDroplet:
   - {fileID: 6760004738675035262, guid: 1f6a6b8afc2af4142982a65f057d0004, type: 3}
   - {fileID: 6111176453124728716, guid: d91ae1cd0f9f6452a933ac81e2b2e2d2, type: 3}
   - {fileID: 3551496684009517818, guid: d1f3ecdbd3088dc48a5843ef4bfa00e1, type: 3}
   - {fileID: 6602284953608692686, guid: 1306cd2fc3e14478cb8a539ff05eeae4, type: 3}
   - {fileID: 6602284953608692686, guid: 1306cd2fc3e14478cb8a539ff05eeae4, type: 3}
+  - {fileID: 347559482036223107, guid: 5b866c1e2cb887c40bb296490318c8fd, type: 3}
   levelWithRonce:
   - {fileID: 6760004738675035262, guid: d69c526523ec64d2a829a7690bbdf889, type: 3}
   - {fileID: 6111176453124728716, guid: 0b66db4ea6bf64b12849b1c343057af8, type: 3}
   - {fileID: 6111176453124728716, guid: 0b66db4ea6bf64b12849b1c343057af8, type: 3}
   - {fileID: 6760004738675035262, guid: d69c526523ec64d2a829a7690bbdf889, type: 3}
   - {fileID: 6111176453124728716, guid: 0b66db4ea6bf64b12849b1c343057af8, type: 3}
+  - {fileID: 7881151317921138014, guid: ee4426369a37149a4ab3412ad3426161, type: 3}
   ground: {fileID: 6602284953608692686, guid: 129972dee460a9f4ba685f8cd93a7dc3, type: 3}
   mapSize: 15
   difficulty: 20
@@ -492,22 +495,22 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 7a3951938ed03dd4b9b8b40cca80524f,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.4083087
+      value: 0.45473862
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7a3951938ed03dd4b9b8b40cca80524f,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.09804062
+      value: -0.08661379
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7a3951938ed03dd4b9b8b40cca80524f,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.8824807
+      value: 0.85947716
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7a3951938ed03dd4b9b8b40cca80524f,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.211896
+      value: -0.21681775
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7a3951938ed03dd4b9b8b40cca80524f,
         type: 3}
@@ -517,7 +520,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 7a3951938ed03dd4b9b8b40cca80524f,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 127.115
+      value: 121.008
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 7a3951938ed03dd4b9b8b40cca80524f,
         type: 3}
@@ -528,6 +531,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MESH_RONCE_COURBE
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7a3951938ed03dd4b9b8b40cca80524f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a3951938ed03dd4b9b8b40cca80524f, type: 3}
@@ -2994,7 +3002,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 2.6
+  m_Radius: 2.39
   m_Height: 13
   m_Direction: 1
   m_Center: {x: -3.76, y: 1.34, z: 0}
@@ -3537,6 +3545,26 @@ MonoBehaviour:
   YDistance: 1.85
   XDistance: 0
   playerTransform: {fileID: 1673515592}
+--- !u!1 &2097364074 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 7a3951938ed03dd4b9b8b40cca80524f,
+    type: 3}
+  m_PrefabInstance: {fileID: 236633676}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &2097364077
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2097364074}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2979064408484314451, guid: 7a3951938ed03dd4b9b8b40cca80524f, type: 3}
 --- !u!1001 &2122634821
 PrefabInstance:
   m_ObjectHideFlags: 0
