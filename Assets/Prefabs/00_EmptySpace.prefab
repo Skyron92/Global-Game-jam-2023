@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3676931123430734712}
-  - component: {fileID: 1457651238421871369}
+  - component: {fileID: 2138653568660672908}
   m_Layer: 0
   m_Name: Brambles
   m_TagString: Untagged
@@ -36,7 +36,7 @@ Transform:
   m_Father: {fileID: 7355690950657236964}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &1457651238421871369
+--- !u!136 &2138653568660672908
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -46,10 +46,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.6
-  m_Height: 4.47
+  m_Radius: 0.3
+  m_Height: 3
   m_Direction: 0
-  m_Center: {x: 0, y: 0, z: -0.25}
+  m_Center: {x: 0, y: 0, z: -0.3}
 --- !u!1 &7881151317921138014
 GameObject:
   m_ObjectHideFlags: 0
@@ -413,6 +413,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7a3951938ed03dd4b9b8b40cca80524f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a3951938ed03dd4b9b8b40cca80524f, type: 3}
 --- !u!1 &208097790701254626 stripped
@@ -429,10 +434,10 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 208097790701254626}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2979064408484314451, guid: 7a3951938ed03dd4b9b8b40cca80524f, type: 3}
 --- !u!4 &695981489165888856 stripped
@@ -618,6 +623,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MESH_RONCE_DROITE
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f253d26e582e6fc408a29a734f5ce1c0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f253d26e582e6fc408a29a734f5ce1c0, type: 3}
 --- !u!4 &4986493120182663596 stripped
@@ -640,10 +650,10 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5654346015144862486}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -4624158684341231344, guid: f253d26e582e6fc408a29a734f5ce1c0, type: 3}
 --- !u!1001 &6935641442752051509
@@ -733,6 +743,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7a3951938ed03dd4b9b8b40cca80524f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a3951938ed03dd4b9b8b40cca80524f, type: 3}
 --- !u!4 &7479036800737730270 stripped
@@ -755,10 +770,10 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7818584255318688868}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2979064408484314451, guid: 7a3951938ed03dd4b9b8b40cca80524f, type: 3}
 --- !u!1001 &9131541034919375162
@@ -843,6 +858,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MESH_RONCE_DROITE (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f253d26e582e6fc408a29a734f5ce1c0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f253d26e582e6fc408a29a734f5ce1c0, type: 3}
 --- !u!1 &8248529502742285419 stripped
@@ -859,10 +879,10 @@ MeshCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8248529502742285419}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -4624158684341231344, guid: f253d26e582e6fc408a29a734f5ce1c0, type: 3}
 --- !u!4 &8733457477392717521 stripped
