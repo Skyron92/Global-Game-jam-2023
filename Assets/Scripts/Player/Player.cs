@@ -224,6 +224,7 @@ public class Player : MonoBehaviour
 
     private void TranslateToTheBottom() {
         if(!gameFinished) return;
+        playable = false;
         heigh = 0;
         jumpPower = 0;
         speed = 0;
