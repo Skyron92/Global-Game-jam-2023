@@ -73,7 +73,9 @@ public class Player : MonoBehaviour
         //_currentPosition = transform.position;
         FixPlayerPosition(transform.position);
        Gravity();
-       MoveCharacter();
+       if(!menu.activeSelf){
+        MoveCharacter();
+       }
        RotatePlayer();
        TranslateToTheBottom();
        if(debuffJump > 0 && Input.GetKeyDown(KeyCode.Space)){
