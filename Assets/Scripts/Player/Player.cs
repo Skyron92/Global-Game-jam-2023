@@ -2,6 +2,7 @@ using System;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
 using Random = UnityEngine.Random;
 
 public class Player : MonoBehaviour
@@ -66,14 +67,7 @@ public class Player : MonoBehaviour
         canJump = true;
 
     }
-
-    public static bool _isActive;
-    public bool IsActive
-    {
-        set => menu.SetActive(_isActive);
-    }
     
-
     void Update()
     {
         //_currentPosition = transform.position;
@@ -88,14 +82,12 @@ public class Player : MonoBehaviour
                 canJump = true;
             }
         }
-        /*if(!playable) menu.SetActive(true);
-        else menu.SetActive(false);*/
         _animator.SetFloat("Horizontal", _direction.x);
         if(_velocity > 0) _animator.SetFloat("Vertical", _direction.y);
         else _animator.SetFloat("Vertical", 0);
         if (speed < 0) speed = 0;
         if (speed > _startSpeed) speed = _startSpeed;
-        if(HydratationManager.currentValue <= 90) {GameOver();}
+        if(HydratationManager.currentValue <= 0) {GameOver();}
     }
 
     public void Move(InputAction.CallbackContext context) {
@@ -174,6 +166,8 @@ public class Player : MonoBehaviour
             rootSFX.Play();
             TranslateToTheBottom();
             GameFinished();
+            StartCoroutine(beforeEnd());
+            Debug.Log("Finit !");
         }
          if(other.CompareTag("Fall")){
             GameOver();
@@ -237,6 +231,9 @@ public class Player : MonoBehaviour
         var target = new Quaternion(0, 180, 0,0);
         var rotate = Quaternion.Slerp(rotation, target, timer);
         transform.rotation = rotate;
+    }
+    IEnumerator beforeEnd(){
+        yield return new WaitForSeconds(3);
     }
     /*private void Recoil() {
         Debug.Log("Aie");
