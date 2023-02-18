@@ -56,6 +56,12 @@ public class Player : MonoBehaviour
     [SerializeField] private AudioSource walkSFX;
     [SerializeField] private AudioSource jumpSFX;
     [SerializeField] private AudioSource rootSFX;
+    [SerializeField] private AudioSource waterSFX;
+
+    //Damage feedback (Marine is here)
+    [SerializeField] GameObject navet2GO;
+    Material blinkingMat;
+
 
     void Awake()
     {
@@ -65,7 +71,9 @@ public class Player : MonoBehaviour
         _direction = new Vector3(_input.x, 0, 0);
         _startSpeed = speed;
         canJump = true;
-
+        
+        blinkingMat = navet2GO.GetComponent<Renderer>().material;
+        blinkingMat.SetFloat("_IsBlinking", 0f);
     }
     
     void Update()
@@ -150,6 +158,7 @@ public class Player : MonoBehaviour
 
         if (other.CompareTag("Enemy")) {
             HydratationManager.currentValue -= Damages;
+			StartCoroutine(DamageFeedback());
         }
 
         if (other.CompareTag("WaterDrop")) {
@@ -158,7 +167,7 @@ public class Player : MonoBehaviour
             vfxDroplet.Play();
             other.gameObject.GetComponent<CapsuleCollider>().enabled = false;
             other.gameObject.GetComponent<MeshRenderer>().enabled = false;
-
+			waterSFX.Play();
         }
 
         if(other.CompareTag("Finish")){
@@ -205,7 +214,7 @@ public class Player : MonoBehaviour
     }
     private void GameFinished(){
         //Ecran de victoire
-        Debug.Log("Felicitation, vous avez gagné");
+        Debug.Log("Félicitation, vous avez gagné");
         gameFinished = true;
         menu.SetActive(true);
     }
@@ -237,6 +246,15 @@ public class Player : MonoBehaviour
     IEnumerator beforeEnd(){
         yield return new WaitForSeconds(3);
     }
+
+    IEnumerator DamageFeedback()
+    {
+        blinkingMat.SetFloat("_IsBlinking", 1f);
+        yield return new WaitForSeconds(1.2f);
+        blinkingMat.SetFloat("_IsBlinking", 0f);
+        yield return null;
+    }
+
     /*private void Recoil() {
         Debug.Log("Aie");
         distance.y += recoilPower;
