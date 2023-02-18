@@ -69,7 +69,7 @@ public class CreateLevel : MonoBehaviour
         //lancer un dé
         int randNumber = Random.Range(0,100);
 
-        if(randNumber <= difficulty && !displayedLevel.name.Contains("ronce")){
+        if(randNumber <= difficulty && !levelWithRonce.Contains(displayedLevel)){
             currentList = levelWithRonce;
         }
         else if(randNumber > difficulty && randNumber <= 50 && !displayedLevel.name.Contains("droplet")){
