@@ -167,7 +167,7 @@ public class Player : MonoBehaviour
             vfxDroplet.Play();
             other.gameObject.GetComponent<CapsuleCollider>().enabled = false;
             other.gameObject.GetComponent<MeshRenderer>().enabled = false;
-
+			waterSFX.Play();
         }
 
         if(other.CompareTag("Finish")){
