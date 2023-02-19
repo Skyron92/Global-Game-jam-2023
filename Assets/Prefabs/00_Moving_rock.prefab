@@ -218,6 +218,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 56fe6a2ca2848784d95db50781bb17bd,
+        type: 3}
+      propertyPath: m_TagString
+      value: StonePlatform
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56fe6a2ca2848784d95db50781bb17bd, type: 3}
 --- !u!1 &4691915467838291141 stripped
@@ -226,6 +231,32 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5610466522949763476}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &203722471900939052
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4691915467838291141}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.29534206, y: 0.22535482, z: 0.09}
+  m_Center: {x: 0, y: -0.0016960952, z: -0.0027437068}
+--- !u!65 &3200047715510209587
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4691915467838291141}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.27, y: 0.22535482, z: 0.1}
+  m_Center: {x: 0, y: 0, z: 0.05}
 --- !u!64 &6287598071056560045
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -235,7 +266,7 @@ MeshCollider:
   m_GameObject: {fileID: 4691915467838291141}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
@@ -260,6 +291,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7560896907547264539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4691915467838291141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38189bd7217baf84b9e3f4f059b8f1af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5356707326774027903 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 56fe6a2ca2848784d95db50781bb17bd,

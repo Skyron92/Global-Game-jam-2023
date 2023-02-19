@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
     private Vector3 _direction;
     [Header("Movements Settings")][Range(0,10)][SerializeField] private float speed;
     private float _startSpeed;
-    
+    private GameObject currentPlatform = null;
    
     //Jump Settings
     [Range(0, 10)] [SerializeField] private float jumpPower;
@@ -112,7 +112,8 @@ public class Player : MonoBehaviour
 
     private void MoveCharacter() {
         if(!playable) return;
-        characterController.Move(_direction * (speed * Time.deltaTime));
+		Vector3 platformMovement = new Vector3 ( (currentPlatform == null) ? 0f : currentPlatform.GetComponent<Platform>().deltaX, 0f, 0f); // Check if current platform is null, if not, create a vector with its movement in x. Then add it to Move() function below (Marine)
+        characterController.Move(_direction * (speed * Time.deltaTime) + platformMovement);
     }
     
     private void RotatePlayer() {
@@ -183,6 +184,9 @@ public class Player : MonoBehaviour
          if(other.CompareTag("Fall")){
             GameOver();
         }
+		if(other.gameObject.CompareTag("StonePlatform")){
+			currentPlatform = other.gameObject;
+        }
     }
     private void OnCollisionEnter(Collision collision) {
         if(!playable) return;
@@ -206,6 +210,9 @@ public class Player : MonoBehaviour
             speed = Mathf.Lerp(speed, _startSpeed, 1f);
             canJump = !canJump;
             jumpParticle.enableEmission = true;
+        }
+		if(other.gameObject.CompareTag("StonePlatform")){
+			currentPlatform = null;
         }
     }
 
