@@ -9,6 +9,8 @@ TagManager:
   - WaterDrop
   - BrokenGround
   - Fall
+  - StonePlatform
+  - Ground
   layers:
   - Default
   - TransparentFX
