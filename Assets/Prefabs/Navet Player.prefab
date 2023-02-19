@@ -6054,6 +6054,7 @@ GameObject:
   - component: {fileID: 9109231622084374749}
   - component: {fileID: 9109231622084374748}
   - component: {fileID: 9109231622084374751}
+  - component: {fileID: 6958703975570468344}
   m_Layer: 0
   m_Name: Navet Player
   m_TagString: Player
@@ -6158,6 +6159,7 @@ MonoBehaviour:
   gameFinished: 0
   speed: 4
   jumpPower: 3.5
+  isGrounded: 0
   jumpParticle: {fileID: 9109231621306200299}
   heigh: 0.5
   recoilPower: 1
@@ -6169,6 +6171,8 @@ MonoBehaviour:
   walkSFX: {fileID: 0}
   jumpSFX: {fileID: 0}
   rootSFX: {fileID: 0}
+  waterSFX: {fileID: 0}
+  navet2GO: {fileID: 0}
 --- !u!143 &9109231622084374749
 CharacterController:
   m_ObjectHideFlags: 0
@@ -6278,3 +6282,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &6958703975570468344
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9109231622084374750}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.28, y: 0.28, z: 0.28}
+  m_Center: {x: 0.48, y: -1.39, z: 0.93}
