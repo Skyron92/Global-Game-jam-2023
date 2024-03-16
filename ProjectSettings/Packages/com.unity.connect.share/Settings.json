@@ -21,7 +21,7 @@
             {
                 "type": "System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
                 "key": "buildOutputDirList",
-                "value": "{\"m_Value\":\"D:/Global-Game-jam-2023/WebGL Builds;/Users/allan/Global-Game-jam-2023/WebGL Builds;;;;;;;;\"}"
+                "value": "{\"m_Value\":\"D:/GGJ_2023/Global-Game-jam-2023/WebGL Builds;D:/GGJ_2023/Global-Game-jam-2023/RottenRoots_WebGL;D:/Global-Game-jam-2023/WebGL Builds;/Users/allan/Global-Game-jam-2023/WebGL Builds;;;;;;\"}"
             }
         ]
     }
